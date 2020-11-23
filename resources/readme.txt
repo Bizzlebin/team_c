@@ -10,7 +10,7 @@ By Jeremiah Thomas
 
 Created 2020-05-24
 
-Updated 2020-11-16
+Updated 2020-11-23
 
 +++
 
@@ -49,6 +49,7 @@ GitHub
 • Do not add any special features to the repo (eg, a wiki); I've tested most of these and they're...subpar and generally much more trouble than they're worth.
 • If you edit directly in GitHub, remember to change the editor settings to "Tabs", "4" (optional), and "Soft wrap".
 • Make sure that you have GitHub Desktop—if you can stand to use it—set to *honor* line endings (eg, CRLF), encodings, etc: this is *not* its default, strangely.
+• Upload a .gitignore file ASAP!
 
 +++
 UEWSG

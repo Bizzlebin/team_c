@@ -1,0 +1,60 @@
+API
+
+https://github.com/bizzlebin/team_c/blob/master/api.txt
+
+***
+
+By Jeremiah Thomas
+
+***
+
+Created 2020-11-23
+
++++
+Description
+
+The API for our program (types, etc are in project DOCX); please follow these CURD-based (create, update, read, delete) function, method, and variable names so the modules will interact. Just say no to camels!
+
++++
+Student
+
+===
+Properties
+
+With redundant, anti-pattern setters/getters, sadly; perhaps we can add bounds checks to the setters to make them meaningful (eg, only letters allowed in names, 0–100 for grades)? Otherwise they're just implementing a private var as a public var!
+
+[**var**: setter, getter]
+
+**id**: update_id(), read_id()
+**first_name**: update_first_name(), read_first_name()
+**last_name**: update_last_name(), read_last_name()
+**ssn**: update_ssn(), read_ssn()
+**grades**: update_grades(), read_grades()
+**average_grade**: update_average_grade(), read_average_grade()
+
+===
+Methods
+
+• create_average_grade()
+• output_details() (outputs directly, as per name)
+
++++
+ClassRoom
+
+===
+Properties
+
+• name
+• student_count
+• students
+
+===
+Methods
+
+...
+• create_students() (Put file IO in this step for simplicity as we won't be adding more students from files later)
+• update_students_order_by_average_grade()
+• update_students_order_by_last_name()
+• create_class_average_grade()
+• output_class_details() (call output_details() on students; outputs directly, as per name)
+• read_student_count()

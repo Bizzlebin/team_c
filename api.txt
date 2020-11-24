@@ -10,6 +10,8 @@ By Jeremiah Thomas
 
 Created 2020-11-23
 
+Updated 2020-11-24
+
 +++
 Description
 
@@ -25,12 +27,12 @@ With redundant, anti-pattern setters/getters, sadly; perhaps we can add bounds c
 
 [**var**: setter, getter]
 
-**id**: update_id(), read_id()
-**first_name**: update_first_name(), read_first_name()
-**last_name**: update_last_name(), read_last_name()
+**FIRST_NAME**: read_first_name() (const: no setter)
+**LAST_NAME**: read_last_name() (const: no setter)
 **ssn**: update_ssn(), read_ssn()
 **grades**: update_grades(), read_grades()
 **average_grade**: update_average_grade(), read_average_grade()
+**student_count**: read_student_count() (static method: no setter)
 
 ===
 Methods
@@ -45,7 +47,7 @@ ClassRoom
 Properties
 
 • name
-• student_count
+• student_count (wrapper for Student static (ie, class) method)
 • students
 
 ===

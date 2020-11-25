@@ -10,6 +10,8 @@
 // 
 // Created 2020-11-24
 // 
+// Updated 2020-11-25
+// 
 // +++
 // Description
 // 
@@ -39,25 +41,19 @@ using namespace std;
 class ClassRoom
 	{
 	public:
-		string name = "CSC134";
+		string name;
 		int student_count;
-		Student* students = new Student[MAX_CLASS_SIZE];
+//		Student* students; // Error until Student header/source is ready
 
-		// Constructor
 		ClassRoom();
-		//ClassRoom();
-
-		// Destructor
 		~ClassRoom();
-
-
 		void create_students();
 		void update_students_order_by_average_grade();
 		void update_students_order_by_last_name();
-		void create_class_average_grade();
+		double create_class_average_grade();
 		void output_class_details();
-		void read_student_count();
+		int read_student_count();
 
 	private:
-		const int MAX_CLASS_SIZE = 24;
+		const int MAX_CLASS_SIZE = 0; // Constant properties must be initialized, even with a dummy value
 	};

@@ -47,12 +47,12 @@ class ClassRoom
 
 		ClassRoom();
 		~ClassRoom();
-		void create_students();
+		void create_students(const std::string I_FILENAME = "students.txt");
 		void update_students_order_by_average_grade();
 		void update_students_order_by_last_name();
-		double create_class_average_grade();
-		void output_class_details();
-		int read_student_count();
+		double create_class_average_grade() const; // I am keeping these const as per https://isocpp.org/wiki/faq/const-correctness; the return is not const but the method cannot modify it's object
+		void output_class_details() const;
+		int read_student_count() const;
 
 	private:
 		const int MAX_CLASS_SIZE = 0; // Constant properties must be initialized, even with a dummy value

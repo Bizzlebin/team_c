@@ -50,9 +50,27 @@ ClassRoom::~ClassRoom()
 // ---
 // Create Students
 // 
-void ClassRoom::create_students()
+void ClassRoom::create_students(const std::string I_FILENAME)
 	{
-	
+	std::ifstream i_file; // These streams *cannot* be constants
+	std::string line;
+
+	i_file.open(I_FILENAME);
+	if (!i_file.is_open())
+		{
+		std::cout << "Could not open file " << I_FILENAME << " !\n";
+		std::cin.get(); // Pause at the end; not sure how to end program since this function is void
+		}
+
+	while (!i_file.eof())
+		{
+		std::getline(i_file, line);
+		if (!line.empty()) // Check for blank lines, including at EOF!
+			{
+			std::cout << line << "\n";
+			}
+		}
+	i_file.close();
 	}
 // 
 // ---
@@ -76,7 +94,7 @@ void ClassRoom::update_students_order_by_last_name()
 // 
 // Create the average class grade based upon individual student averages.
 // 
-double ClassRoom::create_class_average_grade()
+double ClassRoom::create_class_average_grade() const
 	{
 	double total_grade = 0;
 
@@ -92,7 +110,7 @@ double ClassRoom::create_class_average_grade()
 // 
 // Output all the student details for the class by iterating over each student and calling their display method.
 // 
-void ClassRoom::output_class_details()
+void ClassRoom::output_class_details() const
 	{
 //	for (const auto& student: students)
 //		{
@@ -105,7 +123,7 @@ void ClassRoom::output_class_details()
 // 
 // Read the number of students in the classroom.
 // 
-int ClassRoom::read_student_count()
+int ClassRoom::read_student_count() const
 	{
 	return student_count;
 	}

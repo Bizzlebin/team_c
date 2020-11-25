@@ -10,6 +10,8 @@
 // 
 // Created 2020-11-24
 // 
+// Updated 2020-11-25
+// 
 // +++
 // Description
 // 
@@ -20,7 +22,7 @@
 // +++
 // Imports
 // 
-#include <iostream>
+#include "classroom.hpp"
 // 
 // +++
 // Assignments
@@ -53,7 +55,26 @@
 // 
 int main()
 	{
-	std::cout << "It works!\n";
+	std::string alternate_i_filename = "";
+	ClassRoom csc_134;
+
+	std::cout << "Welcome to the ClassRoom simulator!\n\n";
+
+	std::cout << "Input student data filename or press Enter to default to students.txt: ";
+	std::cin >> noskipws >> alternate_i_filename;
+	std::cin.clear();
+	std::cin.ignore(INT_MAX, '\n');
+
+	if (alternate_i_filename == "")
+		{
+		std::cout << "students.txt\n";
+		csc_134.create_students();
+		}
+	else
+		{
+		std::cout << alternate_i_filename << "\n";
+		csc_134.create_students(alternate_i_filename);
+		}
 
 	return 0;
 	}

@@ -147,6 +147,9 @@
     <ClInclude Include="classroom.hpp" />
     <ClInclude Include="student.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="students.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

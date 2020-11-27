@@ -47,53 +47,100 @@ int students::StudentNumber = 0;
 // Classes
 // 
 // Constructor
-/*students::students()
+students::students()
 {
-}*/
-students::students(string FirstName, string LastName, string SocialSecurity)
+	firstname = "";
+	lastname = "";
+	socialsecurity = "";
+}
+
+students::students(string fn, string ln, string ss, double ex[4])
 {
+	firstname = fn;
+	lastname = ln;
+	socialsecurity = ss;
+	for (int i = 0; i < 4; i++)
+	{
+		exam[i] = ex[i];
+	}
 
 }
-// Destructor
-/*students::~students()
-{
-}*/
 
-void students::setFirstName() const
+// Destructor
+students::~students()
 {
 }
 
 string students::getFirstName() const
 {
-	return string();
+	return firstname;
 }
 
-void students::setLastName() const
+void students::setFirstName(string FN) const
 {
+	firstname = FN;
 }
 
 string students::getLastName() const
 {
-	return string();
+	return lastname;
 }
 
-void students::setSocialSecurity()
+void students::setLastName(string LN) const
 {
+	lastname = LN;
 }
 
 string students::getSocialSecurity()
 {
-	return string();
+	return socialsecurity;
 }
 
-void students::setStudentAvg()
+void students::setSocialSecurity(string SS)
 {
+	socialsecurity = SS;
+}
+
+const double* students::getExam() const
+{
+	return exam;
+}
+
+void students::setExam(double ex[4])
+{
+	for (int i = 0; i < 4; i++)
+	{
+		exam[i] = ex[i];
+	}
 }
 
 double students::getStudentAvg()
 {
-	return 0.0;
+	return studentavg;
 }
+
+void students::setStudentAvg()
+{
+	double total = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		total =+ exam[i];
+	}
+	studentavg = total / 4;
+}
+
+void students::displayFunc()
+{
+	cout << firstname << " " << lastname << " " << socialsecurity << " ";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << exam[i];
+	}
+	
+}
+
+
+
 
 // 
 // ===

@@ -22,6 +22,8 @@
 // 
 #ifndef STUDENTS_H
 #define STUDENTS_H
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -48,27 +50,30 @@ using namespace std;
 class students
 	{
 	public: 
-		//students();
-		students(string FirstName, string LastName, string SocialSecurity);
-		//~students();
-		void setFirstName() const;
+		students();
+		students(string fn, string ln, string ss, double ex[4]);
+		~students();
 		string getFirstName() const;
-		void setLastName() const;
+		void setFirstName(string FN) const;
 		string getLastName() const;
-		void setSocialSecurity();
+		void setLastName(string LN) const;
 		string getSocialSecurity();
-		//void Exam
-		void setStudentAvg();
+		void setSocialSecurity(string SS);
+		const double* getExam() const;
+		void setExam(double exam[4]);
 		double getStudentAvg();
+		void setStudentAvg();
+		void displayFunc();
+		
 
 
 
 	private:
-		string FirstName;
-		string LastName;
-		string SocialSecurity;
-		double Exam[4];
-		double StudentAvg;
+		string firstname{};
+		string lastname{};
+		string socialsecurity{};
+		double exam[4];
+		double studentavg{};
 		static int StudentNumber;
 		
 

@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-25
+// Updated 2020-11-30
 // 
 // +++
 // Description
@@ -23,6 +23,7 @@
 // Imports
 // 
 #include "classroom.hpp"
+#include "student.hpp"
 // 
 // +++
 // Assignments

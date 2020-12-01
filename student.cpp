@@ -11,6 +11,8 @@
 // 
 // Created 2020-11-24
 // 
+// Updated 2020-11-30
+// 
 // +++
 // Description
 // 
@@ -38,7 +40,7 @@ using namespace std;
 // ===
 // Constants
 // 
-int students::StudentNumber = 0;
+int Student::student_count = 0;
 // 
 // +++
 // Functions
@@ -47,101 +49,87 @@ int students::StudentNumber = 0;
 // Classes
 // 
 // Constructor
-students::students()
-{
-	firstname = "";
-	lastname = "";
-	socialsecurity = "";
-}
-
-students::students(string fn, string ln, string ss, double ex[4])
-{
-	firstname = fn;
-	lastname = ln;
-	socialsecurity = ss;
-	for (int i = 0; i < 4; i++)
+Student::Student()
 	{
-		exam[i] = ex[i];
+	FIRST_NAME = "";
+	LAST_NAME = "";
+	ssn = "";
 	}
 
-}
+Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[4])
+	{
+	FIRST_NAME = LAST_NAME;
+	LAST_NAME = LAST_NAME;
+	ssn = ssn;
+	for (int i = 0; i < 4; i++)
+		{
+		grades[i] = grades[i];
+		}
+
+	}
 
 // Destructor
-students::~students()
-{
-}
-
-string students::getFirstName() const
-{
-	return firstname;
-}
-
-void students::setFirstName(string FN) const
-{
-	firstname = FN;
-}
-
-string students::getLastName() const
-{
-	return lastname;
-}
-
-void students::setLastName(string LN) const
-{
-	lastname = LN;
-}
-
-string students::getSocialSecurity()
-{
-	return socialsecurity;
-}
-
-void students::setSocialSecurity(string SS)
-{
-	socialsecurity = SS;
-}
-
-const double* students::getExam() const
-{
-	return exam;
-}
-
-void students::setExam(double ex[4])
-{
-	for (int i = 0; i < 4; i++)
+Student::~Student()
 	{
-		exam[i] = ex[i];
 	}
-}
 
-double students::getStudentAvg()
-{
-	return studentavg;
-}
+string Student::read_first_name() const
+	{
+	return FIRST_NAME;
+	}
 
-void students::setStudentAvg()
-{
+string Student::read_last_name() const
+	{
+	return LAST_NAME;
+	}
+
+void Student::update_ssn(string ssn)
+	{
+	ssn = ssn;
+	}
+
+string Student::read_ssn()
+	{
+	return ssn;
+	}
+
+void Student::update_grades(double grades[4])
+	{
+	for (int i = 0; i < 4; i++)
+		{
+		grades[i] = grades[i];
+		}
+	}
+
+const double* Student::read_grades() const
+	{
+	return grades;
+	}
+
+void Student::update_average_grade()
+	{
 	double total = 0;
 	for (int i = 0; i < 4; i++)
-	{
-		total =+ exam[i];
+		{
+		total =+ grades[i];
+		}
+	average_grade = total / 4;
 	}
-	studentavg = total / 4;
-}
 
-void students::displayFunc()
-{
-	cout << firstname << " " << lastname << " " << socialsecurity << " ";
+double Student::read_average_grade()
+	{
+	return average_grade;
+	}
+
+void Student::output_details()
+	{
+	cout << FIRST_NAME << " " << FIRST_NAME << " " << ssn << " ";
 	for (int i = 0; i < 4; i++)
-	{
-		cout << exam[i];
-	}
+		{
+		cout << grades[i];
+		}
 	
-}
-
-
-
-
+	}
 // 
 // ===
 // Definitions
@@ -151,4 +139,3 @@ void students::displayFunc()
 // +++
 // Output
 // 
-

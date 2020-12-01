@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-25
+// Updated 2020-11-30
 // 
 // +++
 // Description
@@ -23,6 +23,7 @@
 // Imports
 // 
 #include "classroom.hpp"
+#include "student.hpp"
 // 
 // ===
 // Definitions
@@ -36,7 +37,7 @@ ClassRoom::ClassRoom()
 
 	name = "CSC134";
 	student_count = 0;
-//	students = new Student[MAX_CLASS_SIZE]; // Error until Student header/source is ready
+//	students = new Student[MAX_CLASS_SIZE]; // Error: wrong way to declare
 	}
 // 
 // ---

@@ -54,23 +54,26 @@ Student::Student()
 	FIRST_NAME = "";
 	LAST_NAME = "";
 	ssn = "";
+	student_count++;
 	}
 
 Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[4])
 	{
-	FIRST_NAME = LAST_NAME;
-	LAST_NAME = LAST_NAME;
-	ssn = ssn;
+	this->FIRST_NAME = FIRST_NAME;
+	this->LAST_NAME = LAST_NAME;
+	this->ssn = ssn;
 	for (int i = 0; i < 4; i++)
 		{
-		grades[i] = grades[i];
+		this->grades[i] = grades[i];
 		}
+	student_count++;
 
 	}
 
 // Destructor
 Student::~Student()
 	{
+	student_count--;
 	}
 
 string Student::read_first_name() const
@@ -85,7 +88,7 @@ string Student::read_last_name() const
 
 void Student::update_ssn(string ssn)
 	{
-	ssn = ssn;
+	this->ssn = ssn;
 	}
 
 string Student::read_ssn()
@@ -97,7 +100,7 @@ void Student::update_grades(double grades[4])
 	{
 	for (int i = 0; i < 4; i++)
 		{
-		grades[i] = grades[i];
+		this->grades[i] = grades[i];
 		}
 	}
 
@@ -106,19 +109,29 @@ const double* Student::read_grades() const
 	return grades;
 	}
 
-void Student::update_average_grade()
+void Student::update_average_grade(double average_grade)
 	{
-	double total = 0;
-	for (int i = 0; i < 4; i++)
-		{
-		total =+ grades[i];
-		}
-	average_grade = total / 4;
+	this->average_grade = average_grade;
 	}
 
 double Student::read_average_grade()
 	{
 	return average_grade;
+	}
+
+int Student::read_student_count()
+	{
+	return student_count;
+	}
+
+void Student::create_average_grade()
+	{
+	double total = 0;
+	for (int i = 0; i < 4; i++)
+		{
+		total = +grades[i];
+		}
+	average_grade = total / 4;
 	}
 
 void Student::output_details()

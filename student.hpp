@@ -60,8 +60,10 @@ class Student
 		string read_ssn();
 		void update_grades(double grades[4]);
 		const double* read_grades() const;
-		void update_average_grade();
+		void update_average_grade(double average_grade);
 		double read_average_grade();
+		int read_student_count();
+		void create_average_grade();
 		void output_details();
 		
 	private:

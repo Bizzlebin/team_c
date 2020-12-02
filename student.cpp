@@ -123,12 +123,12 @@ double Student::read_average_grade()
 
 void Student::output_details()
 	{
-	cout << FIRST_NAME << " " << FIRST_NAME << " " << ssn << " ";
+	cout << FIRST_NAME << " " << LAST_NAME << " " << ssn << " ";
 	for (int i = 0; i < 4; i++)
 		{
 		cout << grades[i];
 		}
-	
+	cout << " " << average_grade;
 	}
 // 
 // ===

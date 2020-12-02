@@ -27,6 +27,8 @@
 #include <fstream>
 #include <string>
 
+#include "student.hpp"
+
 using namespace std;
 // 
 // +++
@@ -43,14 +45,17 @@ class ClassRoom
 	public:
 		string name;
 		int student_count;
-//		Student* students; // Error until Student header/source is ready
+		Student* students = new Student[24]; 
+		
+		
+		// Error until Student header/source is ready
 
 		ClassRoom();
 		~ClassRoom();
-		void create_students(const std::string I_FILENAME = "students.txt");
+		void create_students(const string I_FILENAME = "students.txt");
 		void update_students_order_by_average_grade();
 		void update_students_order_by_last_name();
-		double create_class_average_grade() const; // I am keeping these const as per https://isocpp.org/wiki/faq/const-correctness; the return is not const but the method cannot modify it's object
+		double create_class_average_grade() const; // I am keeping these const as per https://isocpp.org/wiki/faq/const-correctness; the return is not const but the method cannot modify its object
 		void output_class_details() const;
 		int read_student_count() const;
 

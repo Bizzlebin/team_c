@@ -67,11 +67,11 @@ class Student
 		void output_details();
 		
 	private:
-		string FIRST_NAME{};
-		string LAST_NAME{};
-		string ssn{};
+		string FIRST_NAME;
+		string LAST_NAME;
+		string ssn;
 		double grades[4];
-		double average_grade{};
+		double average_grade;
 		static int student_count;
 	};
 

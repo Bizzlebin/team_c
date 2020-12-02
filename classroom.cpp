@@ -24,6 +24,8 @@
 // 
 #include "classroom.hpp"
 #include "student.hpp"
+
+using namespace std;
 // 
 // ===
 // Definitions
@@ -53,25 +55,28 @@ ClassRoom::~ClassRoom()
 // 
 void ClassRoom::create_students(const std::string I_FILENAME)
 	{
-	std::ifstream i_file; // These streams *cannot* be constants
-	std::string line;
+	ifstream i_file; // These streams *cannot* be constants
+	string line;
 
 	i_file.open(I_FILENAME);
 	if (!i_file.is_open())
 		{
-		std::cout << "Could not open file " << I_FILENAME << " !\n";
-		std::cin.get(); // Pause at the end; not sure how to end program since this function is void
+		cout << "Could not open file " << I_FILENAME << " !\n";
+		cin.get(); // Pause at the end; not sure how to end program since this function is void
 		}
 
 	while (!i_file.eof())
 		{
-		std::getline(i_file, line);
-		if (!line.empty()) // Check for blank lines, including at EOF!
-			{
-			std::cout << line << "\n";
-			}
+		string first_name;
+		string last_name;
+		string ssn;
+		double grades[4];
+		i_file >> first_name >> last_name >> ssn >> grades[0] >> grades[1] >> grades[2] >> grades[3];
+		Student student = Student(first_name, last_name, ssn, grades);
 		}
 	i_file.close();
+
+	cout << students[1].read_first_name();
 	}
 // 
 // ---

@@ -9,9 +9,9 @@
 //    objects, change the roster order, and generally provide wrappers 
 //    for Student methods in aggregate.
 /////////////////////////////////////////////////////////////////////////
-
-
 // ClassRoom
+// 
+// Team C
 // 
 // https://github.com/bizzlebin/team_c/blob/master/classroom.cpp
 // 
@@ -23,7 +23,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-12-02
+// Updated 2020-12-03
 // 
 // +++
 // Description
@@ -38,33 +38,6 @@
 #include "classroom.hpp"
 
 using namespace std;
-
-///////////////////////////////////////////////////////////////////////
-//
-// Class: ClassRoom                                      
-//                                                                   
-// Description:
-//    ClassRoom objects create and store an array of Student Objects, 
-//    manipulate, and display the array.
-//
-//    List of data members:
-//    string		name
-//    int			student_count
-//    Student		*students
-//    const int		 MAX_CLASS_SIZE
-//
-//    List of member functions:
-//    ClassRoom()
-//    ~ClassRoom()
-//    void create_students(const string I_FILENAME = "students.txt")
-//    void update_students_order_by_average_grade()
-//    void update_students_order_by_last_name()
-//    double create_class_average_grade() const
-//    void output_class_details() const
-//    int read_student_count() const
-//    
-///////////////////////////////////////////////////////////////////////
-
 // 
 // ===
 // Definitions
@@ -72,7 +45,6 @@ using namespace std;
 // ---
 // [Constructor(s)]
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: ClassRoom()                                          
@@ -87,7 +59,6 @@ using namespace std;
 //    ClassRoom object is created for user.                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 ClassRoom::ClassRoom()
 	{
 	name = "CSC134";
@@ -98,7 +69,6 @@ ClassRoom::ClassRoom()
 // ---
 // [Destructor]
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: ~ClassRoom()                                          
@@ -123,7 +93,6 @@ ClassRoom::~ClassRoom()
 // 
 // Create """Student""" objects from a text file, with basic bounds and error checking, and overwrite a dynamic array of "dummy" objects.
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: create_students()                                          
@@ -168,7 +137,8 @@ void ClassRoom::create_students(const string I_FILENAME)
 // ---
 // Update Students Order By Average Grade
 // 
-
+// Bubble sort """students""" array in ascending order by each student's average grade.
+// 
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: update_students_order_by_average_grade()                                        
@@ -204,7 +174,8 @@ void ClassRoom::update_students_order_by_average_grade()
 // ---
 // Update Students Order By Last Name
 // 
-
+// Bubble sort """students""" array in ascending order by each student's last name.
+//
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: update_students_order_by_last name()                                        
@@ -241,7 +212,6 @@ void ClassRoom::update_students_order_by_last_name()
 // 
 // Create the average class grade based upon individual student averages.
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: create_class_average_grade()                                        
@@ -274,7 +244,6 @@ double ClassRoom::create_class_average_grade() const
 // 
 // Output all the student details for the class, in UEWSG-compliant form with table header, by iterating over each """Student""" and calling their display method.
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: output_class_details()                                        
@@ -308,7 +277,6 @@ void ClassRoom::output_class_details() const
 // 
 // Read the number of students in the classroom.
 // 
-
 ///////////////////////////////////////////////////////////////////////
 //
 // Function: read_student_count()                                        

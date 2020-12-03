@@ -1,4 +1,16 @@
+///////////////////////////////////////////////////////////////////////
+// 
+// Filename: studentmain.cpp
+// Date: 2020-11-24
+// Programmer: Jeremiah Thomas
+// 
+// Description:
+// Main module for a ClassRoom containing many Student objects, with the ability to read each Student in from a text file and perform various sorts and data outputs.
+// 
+///////////////////////////////////////////////////////////////////////
 // StudentMain
+// 
+// Team C
 // 
 // https://github.com/bizzlebin/team_c/blob/master/studentmain.cpp
 // 
@@ -10,7 +22,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-12-02
+// Updated 2020-12-03
 // 
 // +++
 // Description
@@ -28,6 +40,19 @@
 // +++
 // Output
 // 
+///////////////////////////////////////////////////////////////////////
+// 
+// Function: main
+// 
+// Description:
+// Run the program.
+// 
+// Parameters:
+// 
+// Returns:
+// *: numeric exit code
+// 
+///////////////////////////////////////////////////////////////////////
 int main()
 	{
 	std::string alternate_i_filename = "";
@@ -50,12 +75,12 @@ int main()
 		}
 
 	std::cout << "\n";
-	std::cout << "**Student details, sorted by average grade**:\n"; // Sort first: average
 	csc_134.update_students_order_by_average_grade();
+	std::cout << "**Student details, sorted by average grade**:\n";
 	csc_134.output_class_details();
 
-	std::cout << "**Student details, sorted by last name**:\n"; // Sort first: last name
 	csc_134.update_students_order_by_last_name();
+	std::cout << "**Student details, sorted by last name**:\n";
 	csc_134.output_class_details();
 
 	std::cout << "**Average class grade**: " << csc_134.create_class_average_grade() << "\n";

@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-25
+// Updated 2020-12-02
 // 
 // +++
 // Description
@@ -44,11 +44,8 @@ class ClassRoom
 	{
 	public:
 		string name;
-		int student_count;
-		Student* students = new Student[24]; 
-		
-		
-		// Error until Student header/source is ready
+		int student_count; // Due to assignment constraints (int vs reference or pointer), this is sadly *separate* from the """Student""" identifier of the same name
+		Student *students;
 
 		ClassRoom();
 		~ClassRoom();
@@ -60,5 +57,5 @@ class ClassRoom
 		int read_student_count() const;
 
 	private:
-		const int MAX_CLASS_SIZE = 0; // Constant properties must be initialized, even with a dummy value
+		const int MAX_CLASS_SIZE = 24; // Not sure how to initialize outside of header
 	};

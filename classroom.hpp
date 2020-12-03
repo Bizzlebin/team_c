@@ -1,10 +1,20 @@
+///////////////////////////////////////////////////////////////////////
+//                                                                     
+// Filename: classroom.hpp
+// Date: November 24, 2020
+// Programmer: Sage Putnam  //  Jeremiah Thomas    
+//
+// Description:
+//    Header file for ClassRoom class.
+/////////////////////////////////////////////////////////////////////////
+
 // ClassRoom
 // 
 // https://github.com/bizzlebin/team_c/blob/master/classroom.hpp
 // 
 // ***
 // 
-// By Jeremiah Thomas, et al
+// By Jeremiah Thomas, Sage Putnam, et al
 // 
 // ***
 // 
@@ -30,6 +40,33 @@
 #include "student.hpp"
 
 using namespace std;
+
+///////////////////////////////////////////////////////////////////////
+//
+// Class: ClassRoom                                      
+//                                                                   
+// Description:
+//    ClassRoom objects create and store an array of Student Objects, 
+//    manipulate, and display the array.
+//
+//    List of data members:
+//    string		name
+//    int			student_count
+//    Student		*students
+//
+//    List of member functions:
+//    ClassRoom()
+//    ~ClassRoom()
+//    void create_students(const string I_FILENAME = "students.txt")
+//    void update_students_order_by_average_grade()
+//    void update_students_order_by_last_name()
+//    double create_class_average_grade() const
+//    void output_class_details() const
+//    int read_student_count() const
+//    
+///////////////////////////////////////////////////////////////////////
+
+
 // 
 // +++
 // Functions

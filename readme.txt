@@ -12,6 +12,15 @@ By Jeremiah Thomas, et al
 
 Created 2020-11-23
 
+Updated 2020-12-03
+
+Released 2020-12-03
+
++++
+Dedication
+
+CSC 134-5101
+
 +++
 Welcome
 
@@ -37,3 +46,4 @@ Metametadata
 **meta_uri**: https://github.com/bizzlebin/team_c/blob/master/readme.txt
 **meta_author**: Jeremiah Thomas
 **meta_created**: 2020-11-23
+**meta_updated**: 2020-12-03

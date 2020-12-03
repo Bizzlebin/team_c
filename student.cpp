@@ -11,7 +11,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-30
+// Updated 2020-12-02
 // 
 // +++
 // Description
@@ -24,18 +24,8 @@
 // Imports
 // 
 #include "student.hpp"
-#include <iostream>
-#include <string>
 
 using namespace std;
-// 
-// +++
-// Assignments
-// 
-// ===
-// Initializations
-// 
-
 // 
 // ===
 // Constants
@@ -54,7 +44,6 @@ Student::Student()
 	FIRST_NAME = "";
 	LAST_NAME = "";
 	ssn = "";
-	student_count++;
 	}
 
 Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[4])
@@ -66,14 +55,17 @@ Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[
 		{
 		this->grades[i] = grades[i];
 		}
-	student_count++;
-
+	average_grade = create_average_grade();
+	++student_count; // Only count real students
 	}
 
 // Destructor
 Student::~Student()
 	{
-	student_count--;
+	if (ssn == "") // Only call on dummy """Student""" objs; not sure why the destructor checks the *new* object's properties rather than the one being deleted: this is why the SSN check isn't reversed
+		{
+		--student_count;
+		}
 	}
 
 string Student::read_first_name() const
@@ -104,7 +96,7 @@ void Student::update_grades(double grades[4])
 		}
 	}
 
-const double* Student::read_grades() const
+const double *Student::read_grades() const
 	{
 	return grades;
 	}
@@ -124,31 +116,26 @@ int Student::read_student_count()
 	return student_count;
 	}
 
-void Student::create_average_grade()
+double Student::create_average_grade()
 	{
-	double total = 0;
-	for (int i = 0; i < 4; i++)
+	double total = 0.0;
+	for (int i = 0; i < 4; ++i)
 		{
-		total = +grades[i];
+		total += grades[i];
 		}
-	average_grade = total / 4;
+	return total / 4;
 	}
 
 void Student::output_details()
 	{
-	cout << FIRST_NAME << " " << LAST_NAME << " " << ssn << " ";
+	cout << "\t" << left << setw(11) << LAST_NAME + ", " << setw(12) << FIRST_NAME + ", " << setw(13) << ssn + ", " <<fixed << setprecision(2) << average_grade << "   (";
 	for (int i = 0; i < 4; i++)
 		{
 		cout << grades[i];
+		if (i < 3)
+			{
+			cout << ", ";
+			}
 		}
-	cout << " " << average_grade;
+	cout << ")\n";
 	}
-// 
-// ===
-// Definitions
-// 
-
-// 
-// +++
-// Output
-// 

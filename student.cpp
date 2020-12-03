@@ -8,13 +8,41 @@
 //    Holds the function prototypes for class "Student" 
 //    which include the getters and setters for grades, ssn, and names
 /////////////////////////////////////////////////////////////////////////
+// Student
+// 
+// Team C
+// 
+// https://github.com/bizzlebin/team_c/blob/master/student.cpp
+// 
+// ***
+// 
+// By Shane Cawthon, William Gary Lineberger, et al
+// 
+// ***
+// 
+// Created 2020-11-24
+// 
+// Updated 2020-12-03
+// 
+// +++
+// Description
+// 
+// Class file for StudentMain, defining Student with names, grades, and more; also includes class/static var to count students and a str method to output the details.
+// 
 
+// 
+// +++
+// Imports
+// 
 #include "student.hpp"
 
 using namespace std;
 // 
+// +++
+// Assignments
+// 
 // ===
-// Constants
+// Initializations
 // 
 int Student::student_count = 0;
 // 
@@ -22,16 +50,47 @@ int Student::student_count = 0;
 // Functions
 // 
 // ===
-// Classes
+// Definitions
 // 
 // Constructor
+// 
+///////////////////////////////////////////////////////////////////////
+//
+// Function: Student()                                          
+//                                                                   
+// Description:
+//    Constructor for Student class.
+//
+// Parameters:  
+//    No parameters.               
+//                                                       
+// Returns:  
+//    Student object is created for user.                 
+//                                            
+///////////////////////////////////////////////////////////////////////
 Student::Student()
 	{
 	FIRST_NAME = "";
 	LAST_NAME = "";
 	ssn = "";
 	}
-//Constructor
+//
+// Constructor
+// 
+///////////////////////////////////////////////////////////////////////
+//
+// Function: Student()                                          
+//                                                                   
+// Description:
+//    Constructor for Student class.
+//
+// Parameters:  
+//    No parameters.               
+//                                                       
+// Returns:  
+//    Student object is created for user.                 
+//                                            
+///////////////////////////////////////////////////////////////////////
 Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[4])
 	{
 	this->FIRST_NAME = FIRST_NAME;
@@ -44,8 +103,23 @@ Student::Student(string FIRST_NAME, string LAST_NAME, string ssn, double grades[
 	average_grade = create_average_grade();
 	++student_count; // Only count real students
 	}
-
+// 
 // Destructor
+// 
+///////////////////////////////////////////////////////////////////////
+//
+// Function: ~Student()                                          
+//                                                                   
+// Description:
+//    Destructor for Student class.
+//
+// Parameters:  
+//    No parameters.               
+//                                                       
+// Returns:  
+//    Student object is destroyed for user.                 
+//                                            
+///////////////////////////////////////////////////////////////////////
 Student::~Student()
 	{
 	if (ssn == "") // Only call on dummy """Student""" objs; not sure why the destructor checks the *new* object's properties rather than the one being deleted: this is why the SSN check isn't reversed
@@ -67,7 +141,6 @@ Student::~Student()
 //    FIRST_NAME : the given first name                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 string Student::read_first_name() const
 	{
 	return FIRST_NAME;
@@ -86,7 +159,6 @@ string Student::read_first_name() const
 //    LAST_NAME : the given last name                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 string Student::read_last_name() const
 	{
 	return LAST_NAME;
@@ -105,7 +177,6 @@ string Student::read_last_name() const
 //    doesnt return anything                
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 void Student::update_ssn(string ssn)
 	{
 	this->ssn = ssn;
@@ -124,7 +195,6 @@ void Student::update_ssn(string ssn)
 //    ssn : the social security number found in the txt file                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 string Student::read_ssn()
 	{
 	return ssn;
@@ -143,7 +213,6 @@ string Student::read_ssn()
 //    void function, doesnt return anything                
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 void Student::update_grades(double grades[4])
 	{
 	for (int i = 0; i < 4; i++)
@@ -165,7 +234,6 @@ void Student::update_grades(double grades[4])
 //    grades : returns the grades                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 const double *Student::read_grades() const
 	{
 	return grades;
@@ -184,7 +252,6 @@ const double *Student::read_grades() const
 //    average_grade : the average grade                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 void Student::update_average_grade(double average_grade)
 	{
 	this->average_grade = average_grade;
@@ -203,7 +270,6 @@ void Student::update_average_grade(double average_grade)
 //    average_grade : returns the average grade                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 double Student::read_average_grade()
 	{
 	return average_grade;
@@ -222,7 +288,6 @@ double Student::read_average_grade()
 //    student_count : the current number of students                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 int Student::read_student_count()
 	{
 	return student_count;
@@ -241,7 +306,6 @@ int Student::read_student_count()
 //    total/4 : this is the numerical value of the average                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 double Student::create_average_grade()
 	{
 	double total = 0.0;
@@ -269,7 +333,6 @@ double Student::create_average_grade()
 //    it is a void function                 
 //                                            
 ///////////////////////////////////////////////////////////////////////
-
 void Student::output_details()
 	{
 	cout << "\t" << left << setw(11) << LAST_NAME + ", " << setw(12) << FIRST_NAME + ", " << setw(13) << ssn + ", " <<fixed << setprecision(2) << average_grade << "   (";

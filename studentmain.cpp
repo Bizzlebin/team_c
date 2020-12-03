@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-30
+// Updated 2020-12-02
 // 
 // +++
 // Description
@@ -24,32 +24,6 @@
 // 
 #include "classroom.hpp"
 #include "student.hpp"
-// 
-// +++
-// Assignments
-// 
-// ===
-// Initializations
-// 
-
-// 
-// ===
-// Constants
-// 
-
-// 
-// +++
-// Functions
-// 
-// ===
-// Classes
-// 
-
-// 
-// ===
-// Definitions
-// 
-
 // 
 // +++
 // Output
@@ -68,14 +42,22 @@ int main()
 
 	if (alternate_i_filename == "")
 		{
-		std::cout << "students.txt\n";
 		csc_134.create_students();
 		}
 	else
 		{
-		std::cout << alternate_i_filename << "\n";
 		csc_134.create_students(alternate_i_filename);
 		}
+
+	std::cout << "\n";
+	std::cout << "**Student details, sorted by average grade**:\n"; // Sort first: average
+	csc_134.output_class_details();
+
+	std::cout << "**Student details, sorted by last name**:\n"; // Sort first: last name
+	csc_134.output_class_details();
+
+	std::cout << "**Average class grade**: " << csc_134.create_class_average_grade() << "\n";
+	std::cout << "**Number of students in class**: " << csc_134.read_student_count() << "\n";
 
 	return 0;
 	}

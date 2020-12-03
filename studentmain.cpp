@@ -51,9 +51,11 @@ int main()
 
 	std::cout << "\n";
 	std::cout << "**Student details, sorted by average grade**:\n"; // Sort first: average
+	csc_134.update_students_order_by_average_grade();
 	csc_134.output_class_details();
 
 	std::cout << "**Student details, sorted by last name**:\n"; // Sort first: last name
+	csc_134.update_students_order_by_last_name();
 	csc_134.output_class_details();
 
 	std::cout << "**Average class grade**: " << csc_134.create_class_average_grade() << "\n";

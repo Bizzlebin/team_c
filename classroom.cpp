@@ -4,7 +4,7 @@
 // 
 // ***
 // 
-// By Jeremiah Thomas, et al
+// By Jeremiah Thomas, Sage Putnam, et al
 // 
 // ***
 // 
@@ -72,7 +72,6 @@ void ClassRoom::create_students(const std::string I_FILENAME)
 		double grades[4];
 
 		i_file >> last_name >> first_name >> ssn >> grades[0] >> grades[1] >> grades[2] >> grades[3];
-		// cout << first_name << last_name << ssn << grades[0] << grades[1] << grades[2] << grades[3] << "|" << student_count << "\n"; // Testing
 		students[student_count] = Student(first_name, last_name, ssn, grades);
 		++student_count; // Only increments this class's """student_count""" due to teacher constraints
 		}
@@ -84,7 +83,19 @@ void ClassRoom::create_students(const std::string I_FILENAME)
 // 
 void ClassRoom::update_students_order_by_average_grade()
 	{
-	
+	for (int pass = 0; pass < student_count - 1; pass++)
+	{
+		for (int comp = 0; comp < student_count - 1; comp++)
+		{
+			if (students[comp].read_average_grade() < students[comp + 1].read_average_grade())
+			{
+				Student tmp = students[comp];
+				students[comp] = students[comp + 1];
+				students[comp + 1] = tmp;
+			}
+		}
+	}
+
 	}
 // 
 // ---
@@ -92,7 +103,18 @@ void ClassRoom::update_students_order_by_average_grade()
 // 
 void ClassRoom::update_students_order_by_last_name()
 	{
-	
+	for (int pass = 0; pass < student_count - 1; pass++)
+	{
+		for (int comp = 0; comp < student_count - 1; comp++)
+		{
+			if (students[comp].read_last_name() > students[comp + 1].read_last_name())
+			{
+				Student tmp = students[comp];
+				students[comp] = students[comp + 1];
+				students[comp + 1] = tmp;
+			}
+		}
+	}
 	}
 // 
 // ---

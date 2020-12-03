@@ -7,20 +7,21 @@
 // Description:
 //    Header file for Student class.
 /////////////////////////////////////////////////////////////////////////
-
 // Student
+// 
+// Team C
 // 
 // https://github.com/bizzlebin/team_c/blob/master/student.hpp
 // 
 // ***
 // 
-// By Shane Cawthon, William Lineberger et al
+// By Shane Cawthon, William Lineberger, et al
 // 
 // ***
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-12-02
+// Updated 2020-12-03
 // 
 // +++
 // Description
@@ -39,7 +40,16 @@
 #include <iomanip>
 
 using namespace std;
-
+// 
+// +++
+// Functions
+// 
+// ===
+// Classes
+// 
+// ---
+// Student
+//
 ///////////////////////////////////////////////////////////////////////
 //
 // Class: Student                                      
@@ -73,17 +83,6 @@ using namespace std;
 //    void output_details()
 //    
 ///////////////////////////////////////////////////////////////////////
-
-// 
-// +++
-// Functions
-// 
-// ===
-// Classes
-// 
-// ---
-// Student
-//
 class Student
 	{
 	public: 

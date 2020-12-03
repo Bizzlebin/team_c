@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-30
+// Updated 2020-12-02
 // 
 // +++
 // Description
@@ -23,7 +23,6 @@
 // Imports
 // 
 #include "classroom.hpp"
-#include "student.hpp"
 
 using namespace std;
 // 
@@ -35,11 +34,9 @@ using namespace std;
 // 
 ClassRoom::ClassRoom()
 	{
-	const int MAX_CLASS_SIZE = 24; // Must redeclare type if const
-
 	name = "CSC134";
 	student_count = 0;
-//	students = new Student[MAX_CLASS_SIZE]; // Error: wrong way to declare
+	students = new Student[MAX_CLASS_SIZE];
 	}
 // 
 // ---
@@ -47,11 +44,13 @@ ClassRoom::ClassRoom()
 // 
 ClassRoom::~ClassRoom()
 	{
-//	delete[] students;
+	delete[] students;
 	}
 // 
 // ---
 // Create Students
+// 
+// Create """Student""" objects from a text file, with basic bounds and error checking, and overwrite a dynamic array of "dummy" objects.
 // 
 void ClassRoom::create_students(const std::string I_FILENAME)
 	{
@@ -65,18 +64,19 @@ void ClassRoom::create_students(const std::string I_FILENAME)
 		cin.get(); // Pause at the end; not sure how to end program since this function is void
 		}
 
-	while (!i_file.eof())
+	while (!i_file.eof() && student_count < MAX_CLASS_SIZE)
 		{
 		string first_name;
 		string last_name;
 		string ssn;
 		double grades[4];
-		i_file >> first_name >> last_name >> ssn >> grades[0] >> grades[1] >> grades[2] >> grades[3];
-		Student student = Student(first_name, last_name, ssn, grades);
+
+		i_file >> last_name >> first_name >> ssn >> grades[0] >> grades[1] >> grades[2] >> grades[3];
+		// cout << first_name << last_name << ssn << grades[0] << grades[1] << grades[2] << grades[3] << "|" << student_count << "\n"; // Testing
+		students[student_count] = Student(first_name, last_name, ssn, grades);
+		++student_count; // Only increments this class's """student_count""" due to teacher constraints
 		}
 	i_file.close();
-
-	cout << students[1].read_first_name();
 	}
 // 
 // ---
@@ -102,26 +102,30 @@ void ClassRoom::update_students_order_by_last_name()
 // 
 double ClassRoom::create_class_average_grade() const
 	{
-	double total_grade = 0;
+	double total_grade = 0.0;
 
-//	for (const auto& student: students) // *Very* useful, clean-looking Python-like iteration: https://stackoverflow.com/questions/10750057/how-to-print-out-the-contents-of-a-vector; note the limitation that the range *cannot* be shrunk using this form (eg, no Python-like """len(FIELD_NAMES) - 1""")
-//		{
-//		total_grade += student.read_average_grade();
-//		}
+	for (int i = 0; i < student_count; ++i)
+		{
+		total_grade += students[i].read_average_grade();
+		}
 	return total_grade / student_count;
 	}
 // 
 // ---
 // Output Class Details
 // 
-// Output all the student details for the class by iterating over each student and calling their display method.
+// Output all the student details for the class, in UEWSG-compliant form with table header, by iterating over each """Student""" and calling their display method.
 // 
 void ClassRoom::output_class_details() const
 	{
-//	for (const auto& student: students)
-//		{
-//		std::cout << student.output_details();
-//		}
+	cout << "\t\"\"\"\n";
+	cout << "\tLast Name, First Name, SSN,         Average (Grades)\n\n";
+
+	for (int i = 0; i < student_count; ++i)
+		{
+		students[i].output_details();
+		}
+	cout << "\t\"\"\"\n";
 	}
 // 
 // ---

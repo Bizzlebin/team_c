@@ -67,27 +67,27 @@ Student::~Student()
 		--student_count;
 		}
 	}
-
+// Function reads the first name of the student off of the file
 string Student::read_first_name() const
 	{
 	return FIRST_NAME;
 	}
-
+// Function reads the last name of the student off of the file
 string Student::read_last_name() const
 	{
 	return LAST_NAME;
 	}
-
+// Function updates the variable "ssn" to the variable found in the function read_ssn()
 void Student::update_ssn(string ssn)
 	{
 	this->ssn = ssn;
 	}
-
+// Function reads the social security number of the student off of the file
 string Student::read_ssn()
 	{
 	return ssn;
 	}
-
+// Function updates the array "grades" to match the array found in read_grades()
 void Student::update_grades(double grades[4])
 	{
 	for (int i = 0; i < 4; i++)
@@ -95,27 +95,27 @@ void Student::update_grades(double grades[4])
 		this->grades[i] = grades[i];
 		}
 	}
-
+// Function reads the grades of the student off of the file
 const double *Student::read_grades() const
 	{
 	return grades;
 	}
-
+// Function(needs info)
 void Student::update_average_grade(double average_grade)
 	{
 	this->average_grade = average_grade;
 	}
-
+// Function(needs info)
 double Student::read_average_grade()
 	{
 	return average_grade;
 	}
-
+// Function(needs info)
 int Student::read_student_count()
 	{
 	return student_count;
 	}
-
+// Function creates the average grade of each student loaded in
 double Student::create_average_grade()
 	{
 	double total = 0.0;
@@ -125,7 +125,7 @@ double Student::create_average_grade()
 		}
 	return total / 4;
 	}
-
+// Function outputs the details given (Last name, First name, ssn, average grades and the students 4 grades
 void Student::output_details()
 	{
 	cout << "\t" << left << setw(11) << LAST_NAME + ", " << setw(12) << FIRST_NAME + ", " << setw(13) << ssn + ", " <<fixed << setprecision(2) << average_grade << "   (";

@@ -7,8 +7,9 @@
 // Description:
 //    Header file for ClassRoom class.
 /////////////////////////////////////////////////////////////////////////
-
 // ClassRoom
+// 
+// Team C
 // 
 // https://github.com/bizzlebin/team_c/blob/master/classroom.hpp
 // 
@@ -20,7 +21,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-12-02
+// Updated 2020-12-03
 // 
 // +++
 // Description
@@ -40,7 +41,16 @@
 #include "student.hpp"
 
 using namespace std;
-
+// 
+// +++
+// Functions
+// 
+// ===
+// Classes
+// 
+// ---
+// ClassRoom
+// 
 ///////////////////////////////////////////////////////////////////////
 //
 // Class: ClassRoom                                      
@@ -53,6 +63,7 @@ using namespace std;
 //    string		name
 //    int			student_count
 //    Student		*students
+//    const int		 MAX_CLASS_SIZE
 //
 //    List of member functions:
 //    ClassRoom()
@@ -65,18 +76,6 @@ using namespace std;
 //    int read_student_count() const
 //    
 ///////////////////////////////////////////////////////////////////////
-
-
-// 
-// +++
-// Functions
-// 
-// ===
-// Classes
-// 
-// ---
-// ClassRoom
-// 
 class ClassRoom
 	{
 	public:

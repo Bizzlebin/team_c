@@ -10,7 +10,7 @@
 // 
 // Created 2020-11-24
 // 
-// Updated 2020-11-30
+// Updated 2020-12-02
 // 
 // +++
 // Description
@@ -26,21 +26,9 @@
 #define STUDENTS_H
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
-// 
-// +++
-// Assignments
-// 
-// ===
-// Initializations
-// 
-
-// 
-// ===
-// Constants
-// 
-
 // 
 // +++
 // Functions
@@ -59,11 +47,11 @@ class Student
 		void update_ssn(string ssn);
 		string read_ssn();
 		void update_grades(double grades[4]);
-		const double* read_grades() const;
+		const double *read_grades() const;
 		void update_average_grade(double average_grade);
 		double read_average_grade();
-		int read_student_count();
-		void create_average_grade();
+		static int read_student_count();
+		double create_average_grade();
 		void output_details();
 		
 	private:
@@ -74,14 +62,4 @@ class Student
 		double average_grade;
 		static int student_count;
 	};
-
 #endif // STUDENTS
-// 
-// ===
-// Definitions
-// 
-
-// 
-// +++
-// Output
-// 
